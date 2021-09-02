@@ -8365,11 +8365,6 @@
   "resolved" "https://registry.npmjs.org/trim-newlines/-/trim-newlines-1.0.0.tgz"
   "version" "1.0.0"
 
-"trim-newlines@^4.0.2":
-  "integrity" "sha512-GJtWyq9InR/2HRiLZgpIKv+ufIKrVrvjQWEj7PxAXNc5dwbNJkqhAUoAGgzRmULAnoOM5EIpveYd3J2VeSAIew=="
-  "resolved" "https://registry.npmjs.org/trim-newlines/-/trim-newlines-4.0.2.tgz"
-  "version" "4.0.2"
-
 "trim-right@^1.0.1":
   "integrity" "sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM="
   "resolved" "https://registry.npmjs.org/trim-right/-/trim-right-1.0.1.tgz"
