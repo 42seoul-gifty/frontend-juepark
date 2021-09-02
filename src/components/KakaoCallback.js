@@ -18,7 +18,15 @@ function KakaoCallback(props) {
 				'Origin': "http://6221-211-114-223-60.ngrok.io",
 			}
 		})
-		.then(result => result.json())
+		.then(async res => {
+			const result = await res.json()
+			console.log(result);
+			const ACCESS_TOKEN = result.data.access_token;
+			const REFRESH_TOKEN = result.data.refresh_token;
+			localStorage.setItem("access_token", ACCESS_TOKEN);    //예시로 로컬에 저장함    
+			localStorage.setItem("refresh_token", REFRESH_TOKEN);    //예시로 로컬에 저장함    
+			window.location.assign("/")
+		})
 		.then(data => {
 			return data;
 		})
