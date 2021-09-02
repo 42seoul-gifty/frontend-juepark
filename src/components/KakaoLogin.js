@@ -14,7 +14,7 @@ function KakaoLogin(props) {
 	// 	})
 	return (
 		<div>
-			result
+			kakao login
 		</div>
 	);
 }

@@ -1,20 +1,5 @@
 import React from 'react';
 
-// [ using a tag ]
-// function Oauth(props) {
-// 	const CLIENT_ID = "4bc54b0ac02e0bb38661b9a568a0f205";
-// 	const REDIRECT_URI = "http://localhost:3000/oauth/callback/kakao";
-// 	const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-
-
-// 	return (
-// 		<a href={KAKAO_AUTH_URL} className="yellow_btn">
-// 			<span>카카오계정으로 로그인(a tag)</span>
-// 		</a>
-// 	);
-// }
-
-// [ using window.location.assign() ]
 function Oauth(props) {
 	const CLIENT_ID = "4bc54b0ac02e0bb38661b9a568a0f205";
 	const REDIRECT_URI = "http://localhost:3000/oauth/callback/kakao";

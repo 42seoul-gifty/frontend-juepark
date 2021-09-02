@@ -7,9 +7,8 @@ import {
 } from 'react-router-dom';
 import Oauth from './components/Oauth'
 import Login from './components/Login'
-import KakaoLogin from './components/KakaoLogin'
 import './App.css';
-//import { About, History, Present } from "./components";
+import { About, History, Present } from "./components";
 
 function App() {
   return (
@@ -17,17 +16,19 @@ function App() {
       <Router>
       <div>
         <ul>
-          <li><NavLink exact to="/">Oauth</NavLink></li>
-          <li><NavLink exact to="/oauth/callback/kakao">Login</NavLink></li>
+          <li><NavLink exact to="/">home</NavLink></li>
+          <li><NavLink exact to="/auth">로그인화면</NavLink></li>
+          <li><NavLink exact to="/About"><About /></NavLink></li>
+          <li><NavLink exact to="/History"><History /></NavLink></li>
+          <li><NavLink exact to="/Present"><Present /></NavLink></li>
         </ul>
       </div>
       <Switch>
-        <Route exact path="/"><Oauth /></Route>
-        {/* <Route exact path="/"><About /></Route>
-        <Route exact path="/"><History /></Route>
-        <Route exact path="/"><Present /></Route> */}
+        <Route exact path="/auth"><Oauth /></Route>
+        <Route exact path="/About"><About /></Route>
+        <Route exact path="/History"><History /></Route>
+        <Route exact path="/Present"><Present /></Route>
         <Route exact path="/oauth/callback/kakao"><Login /></Route>
-        <Route exact path="/KakaoLogin"><KakaoLogin /></Route>
       </Switch>
       </Router>
 
