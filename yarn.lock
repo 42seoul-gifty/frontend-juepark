@@ -5098,10 +5098,10 @@
   "resolved" "https://registry.npmjs.org/js-tokens/-/js-tokens-3.0.2.tgz"
   "version" "3.0.2"
 
-"js-yaml@^3.4.3", "js-yaml@^3.7.0", "js-yaml@^3.9.1":
-  "integrity" "sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g=="
-  "resolved" "https://registry.npmjs.org/js-yaml/-/js-yaml-3.14.1.tgz"
-  "version" "3.14.1"
+"js-yaml@^3.13.1", "js-yaml@^3.4.3", "js-yaml@^3.7.0", "js-yaml@^3.9.1":
+  "integrity" "sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw=="
+  "resolved" "https://registry.npmjs.org/js-yaml/-/js-yaml-3.13.1.tgz"
+  "version" "3.13.1"
   dependencies:
     "argparse" "^1.0.7"
     "esprima" "^4.0.0"
@@ -5567,6 +5567,11 @@
   "integrity" "sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ=="
   "resolved" "https://registry.npmjs.org/merge/-/merge-1.2.1.tgz"
   "version" "1.2.1"
+
+"merge@^2.1.1":
+  "integrity" "sha512-jz+Cfrg9GWOZbQAnDQ4hlVnQky+341Yk5ru8bZSe6sIDTCIg8n9i/u7hSQGSVOF3C7lH6mGtqjkiT9G4wFLL0w=="
+  "resolved" "https://registry.npmjs.org/merge/-/merge-2.1.1.tgz"
+  "version" "2.1.1"
 
 "methods@~1.1.2":
   "integrity" "sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4="
@@ -8359,6 +8364,11 @@
   "integrity" "sha1-WIeWa7WCpFA6QetST301ARgVphM="
   "resolved" "https://registry.npmjs.org/trim-newlines/-/trim-newlines-1.0.0.tgz"
   "version" "1.0.0"
+
+"trim-newlines@^4.0.2":
+  "integrity" "sha512-GJtWyq9InR/2HRiLZgpIKv+ufIKrVrvjQWEj7PxAXNc5dwbNJkqhAUoAGgzRmULAnoOM5EIpveYd3J2VeSAIew=="
+  "resolved" "https://registry.npmjs.org/trim-newlines/-/trim-newlines-4.0.2.tgz"
+  "version" "4.0.2"
 
 "trim-right@^1.0.1":
   "integrity" "sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM="
