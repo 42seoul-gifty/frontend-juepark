@@ -1,9 +1,13 @@
-import About from './About';
-import History from './History';
-import Present from './Present';
+import PageWrapper from "./wrapper/PageWrapper";
+import GiftFooter from "./footer/GiftFooter";
+import BackButton from "./button/BackButton";
+import NextButton from "./button/NextButton";
+import BasicButton from "./button/BasicButton";
 
 export {
-	About,
-	History,
-	Present
-};
+	PageWrapper,
+	GiftFooter,
+	BackButton,
+	NextButton,
+	BasicButton
+}
