@@ -3,12 +3,6 @@ import { BasicButton } from '..';
 
 function NextButton(props) {
 
-	const button = BasicButton("다음으로"); 
-
-	return (
-		<div>
-			{button}
-		</div>
-  );
+	return <BasicButton do={() => window.location.assign(props.next)} text={props.text || "다음으로"}/>
 }
 export default NextButton;

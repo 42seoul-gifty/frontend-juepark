@@ -1,13 +1,11 @@
 import React from 'react';
 
-function BasicButton(text) {
+function BasicButton(props) {
 	return (
-		<div>
-			<button>
-				{text}
-			</button>
-		</div>
-	);
+    <div>
+      <button onClick={() => props.do()}>{props.text}</button>
+    </div>
+  );
 }
 
 export default BasicButton;
