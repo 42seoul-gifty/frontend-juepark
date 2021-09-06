@@ -7,13 +7,12 @@ function GiftFooter(props) {
 
 	return (
     <div>
-      <p>Gift Footer</p>
       <div
         style={{
           display: "flex",
           flexDirection: "row",
         }}>
-        <BackButton text={backText}/>
+        <BackButton back={props.back} text={backText}/>
         <NextButton next={props.next} text={nextText}/>
       </div>
     </div>

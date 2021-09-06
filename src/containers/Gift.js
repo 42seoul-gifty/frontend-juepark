@@ -1,42 +1,37 @@
 // import React from 'react';
 import React from 'react';
-import { PageWrapper, GiftFooter } from '../components';
-import { GiftBody } from '../components';
+import { PageWrapper } from '../components';
+import {
+  GiftBody,
+  GiftBodyConfirm,
+  GiftBodyFinish,
+  GiftBodyInfoReceiver,
+  GiftBodyInfoSender,
+  GiftBodyInfoGift,
+} from "../components";
 
 function Gift(props) {
 	const pathname = window.location.pathname;
 	console.log(pathname);
 	let body = "gift body road error";
-	let next = "/";
 	if (pathname === "/gift/info_sender") {
-		body = <GiftBody pathname={pathname} />;
-		next = "/gift/info_receiver";
+		body = <GiftBodyInfoSender pagename="info_sender" next="/gift/info_receiver"/>;
 	} else if (pathname === "/gift/info_receiver") {
-		body = <GiftBody pathname={pathname} />;
-		next = "/gift/info_gift";
+		body = <GiftBodyInfoReceiver pagename="info_receiver" next="/gift/info_gift"/>;
 	} else if (pathname === "/gift/info_gift") {
-		body = <GiftBody pathname={pathname} />;
-		next = "/gift/confirm";
+		body = <GiftBodyInfoGift pagename="info_gift" next="/gift/confirm"/>;
 	} else if (pathname === "/gift/confirm") {
-		body = <GiftBody pathname={pathname} />;
-		next = "/gift/finish";
+		body = <GiftBodyConfirm pagename="confirm" next="/gift/finish"/>;
 	} else if (pathname === "/gift/finish") {
-		body = <GiftBody pathname={pathname} />;
-		next = "/gift";
+		body = <GiftBodyFinish pagename="finish" next="/gift"/>;
 	} else {
-		body = <GiftBody pathname={pathname} />;
-		next = "gift/info_sender";
+		body = <GiftBody pagename="gift" next="gift/info_sender"/>;
 	}
 
 	return (
 		<PageWrapper>
 			<div>
 				{body}
-				{pathname === "/gift/finish" ? (
-					<GiftFooter next={next} backText="홈으로" nextText="다른 선물하러가기" />
-				) : (
-					<GiftFooter next={next} />
-				)}
 			</div>
 		</PageWrapper>
 	);
