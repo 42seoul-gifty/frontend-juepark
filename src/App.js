@@ -4,10 +4,9 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import Login from './containers/Login'
 import KakaoCallback from './containers/KakaoCallback'
-import './App.css';
 import { Gift, Main } from "./containers";
+import Login  from "./containers/Login";
 
 function App() {
   return (
