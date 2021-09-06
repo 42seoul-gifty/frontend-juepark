@@ -2,8 +2,10 @@ import React from 'react';
 import { PageWrapper } from '../components';
 
 function Login(props) {
-	const CLIENT_ID = "e4c6fc1232c62e4be504c0db75b0f33f";
-	const REDIRECT_URI = "https://gifty-hseo.netlify.app/login/kakao";
+	const CLIENT_ID = "4bc54b0ac02e0bb38661b9a568a0f205";
+	const REDIRECT_URI = "http://gifty-juepark.s3-website.ap-northeast-2.amazonaws.com/login/kakao";
+	//aws 배포주소
+	//http://gifty-juepark.s3-website.ap-northeast-2.amazonaws.com/login/kakao
 	// const REDIRECT_URI = window.REDIRECT_URI;
 	const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 	
