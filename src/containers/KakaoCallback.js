@@ -1,12 +1,12 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function KakaoCallback(props) {
 	let code = new URL(window.location.href).searchParams.get('code');
 	let [result, setResult] = useState("loading...");
 
 	async function getResult(){
-
+		const history = useHistory();
 		setResult("get token");
 
 		const fetchedData = await fetch('http://82f8-125-133-83-39.ngrok.io/auth',
@@ -14,7 +14,6 @@ function KakaoCallback(props) {
 		 	method: 'GET',
 			headers: {
 				'Authorization': code,
-				//'Origin': "http://6221-211-114-223-60.ngrok.io",
 			}
 		})
 		.then(async res => {
@@ -24,14 +23,17 @@ function KakaoCallback(props) {
 			const REFRESH_TOKEN = result.data.refresh_token;
 			localStorage.setItem("access_token", ACCESS_TOKEN);    //예시로 로컬에 저장함    
 			localStorage.setItem("refresh_token", REFRESH_TOKEN);    //예시로 로컬에 저장함    
-			window.location.assign("/")
+			//window.location.assign("/")
+			//history.goBack();
 		})
 		.then(data => {
 			return data;
 		})
 		.catch((error) => console.log(error))
 		.finally(() => {
-			window.location.assign("/")
+			console.log(history);
+			history.goBack();
+			// window.location.assign("/")
 		})
 		console.log(fetchedData);
 	}
