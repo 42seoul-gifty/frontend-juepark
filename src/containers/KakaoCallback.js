@@ -23,17 +23,16 @@ function KakaoCallback(props) {
 			const REFRESH_TOKEN = result.data.refresh_token;
 			localStorage.setItem("access_token", ACCESS_TOKEN);    //예시로 로컬에 저장함    
 			localStorage.setItem("refresh_token", REFRESH_TOKEN);    //예시로 로컬에 저장함    
-			//window.location.assign("/")
-			//history.goBack();
+			window.location.assign("/")
+			// history.goBack();
 		})
 		.then(data => {
 			return data;
 		})
 		.catch((error) => console.log(error))
 		.finally(() => {
-			console.log(history);
-			history.goBack();
-			// window.location.assign("/")
+			// history.goBack();
+			window.location.assign("/")
 		})
 		console.log(fetchedData);
 	}
