@@ -14,7 +14,7 @@ function Main(props) {
 
   return (
     <PageWrapper>
-      yourwish
+      ///yourwish///
       <div style={{
 		  display:"flex",
 		  flexDirection:"row"
