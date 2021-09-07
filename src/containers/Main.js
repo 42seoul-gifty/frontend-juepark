@@ -7,7 +7,7 @@ function Main(props) {
 
   return (
     <PageWrapper>
-      <p>yourwish[changed]</p>
+      <p>yourwish</p>
       <div
         style={{
           display: "flex",
