@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 function KakaoCallback(props) {
 	let code = new URL(window.location.href).searchParams.get('code');
 	let [result, setResult] = useState("loading...");
 
 	async function getResult(){
-		const history = useHistory();
+		// const history = useHistory();
 		setResult("get token");
 
 		const fetchedData = await fetch('http://82f8-125-133-83-39.ngrok.io/auth',
