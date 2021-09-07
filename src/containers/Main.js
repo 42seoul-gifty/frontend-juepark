@@ -4,21 +4,15 @@ import { BasicButton } from "../components";
 
 function Main(props) {
   // check if user logged in
-  // const login = true;
-
-  // if (login === true) {
-  // 	window.location.assign("/gift")
-  // } else {
-  // 	window.location.assign("/login")
-  // }
 
   return (
     <PageWrapper>
-      ///yourwish///
-      <div style={{
-		  display:"flex",
-		  flexDirection:"row"
-	  }}>
+      <p>yourwish[changed]</p>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+        }}>
         <BasicButton
           do={() => window.location.assign("/login")}
           text='로그인'
