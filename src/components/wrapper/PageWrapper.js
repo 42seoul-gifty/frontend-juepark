@@ -11,7 +11,8 @@ const PageWrapper = ({children}) => {
 				paddingTop: 300,
 				paddingBottom: 300,
 				justifyContent: 'center',
-				alignItems: 'center'
+				alignItems: 'center',
+				flexDirection: 'column'
 			}}>
 			{children}
 		</div>
