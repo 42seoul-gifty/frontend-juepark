@@ -1,9 +1,13 @@
 import React from 'react';
-import { BackButton, NextButton } from '..';
+import { BasicButton } from '..';
 
 function GiftFooter(props) {
-  const backText = props.backText;
-  const nextText = props.nextText;
+  const beforeText = props.beforeText || "뒤로가기";
+  const nextText = props.nextText || "다음단계";
+
+  const sendHome = () => {
+    window.location.assign('/');
+  }
 
 	return (
     <div>
@@ -12,8 +16,8 @@ function GiftFooter(props) {
           display: "flex",
           flexDirection: "row",
         }}>
-        <BackButton back={props.back} text={backText}/>
-        <NextButton next={props.next} text={nextText}/>
+        <BasicButton do={props.before || sendHome } text={beforeText}/>
+        <BasicButton do={props.next || sendHome } text={nextText}/>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ function GiftBody(props) {
       <Hamburger />
       <Message contents="선물을 시작하세요!"/>
       <GiftImage />
-      <GiftFooter back='/' next={props.next} nextText='시작하기' />
+      <GiftFooter before={props.before} next={props.next} nextText='시작하기' />
     </BodyWrapper>
   );
 }

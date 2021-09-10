@@ -1,53 +1,16 @@
 import React from "react";
-import { BodyWrapper } from "..";
-import { GiftFooter } from "..";
+import { Logo, Desc, Message, BodyWrapper, GiftFooter } from "..";
 
 
 function GiftBodyConfirm(props) {
 
-  const Image = () => {
-    return (
-      <span
-        role='img'
-        aria-label='present'
-        style={{
-          margin: "0px !important",
-          display: "inline !important",
-          height: "auto",
-          width: "100px",
-          fontSize: "100px",
-          verticalAlign: "middle",
-          lineHeight: "2",
-        }}>
-        🎁
-      </span>
-    );
-  };
-  const Title = () => {
-    return <h1>{props.pagename}</h1>;
-  };
-  const Desc = () => {
-    return <p>description</p>;
-  };
-  const Form = () => {
-    return (
-		<form>
-			<label>
-				<p>Form:</p>
-				<input type="text" name="name" />
-			</label>
-			<input type="submit" value="Submit" />
-		</form>
-	);
-  };
-
   return (
     <BodyWrapper>
-      <Image />
-      <Title />
-      <Desc />
-      <Form />
-        <GiftFooter next={props.next} />
+      <Logo />
+      <Message contents="000님께 선물을 보냅니다." />
+      <Desc contents="(confirm)" />
+      <p>입력한 정보</p>
+      <GiftFooter before={props.before} next={props.next} />
     </BodyWrapper>
   );
 }

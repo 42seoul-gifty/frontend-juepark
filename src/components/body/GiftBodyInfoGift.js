@@ -1,52 +1,17 @@
 import React from "react";
-import { BodyWrapper } from "..";
-import { GiftFooter } from "..";
+import { BodyWrapper, Logo, GiftFooter, Message, Desc, BasicButton, Form } from "..";
 
 function GiftBodyInfoGift(props) {
-
-  const Image = () => {
-    return (
-      <span
-        role='img'
-        aria-label='present'
-        style={{
-          margin: "0px !important",
-          display: "inline !important",
-          height: "auto",
-          width: "100px",
-          fontSize: "100px",
-          verticalAlign: "middle",
-          lineHeight: "2",
-        }}>
-        🎁
-      </span>
-    );
-  };
-  const Title = () => {
-    return <h1>{props.pagename}</h1>;
-  };
-  const Desc = () => {
-    return <p>description</p>;
-  };
-  const Form = () => {
-    return (
-		<form>
-			<label>
-				<p>Form:</p>
-				<input type="text" name="name" />
-			</label>
-			<input type="submit" value="Submit" />
-		</form>
-	);
-  };
-
   return (
     <BodyWrapper>
-      <Image />
-      <Title />
-      <Desc />
-      <Form />
-        <GiftFooter next={props.next} />
+    <Logo />
+      <Message contents="받는 분의 정보를 입력해주세요!" />
+      <Desc contents="받는 사람 선물 정보입력" />
+      <BasicButton do={() => console.log("남")} text="남" />
+      <BasicButton do={() => console.log("여")} text="여" />
+      <Form label="나이" field="gift_age" type="age" />
+      <Form label="가격대" field="gift_price" type="price" />
+      <GiftFooter before={props.before} next={props.next} />
     </BodyWrapper>
   );
 }
