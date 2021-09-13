@@ -5,10 +5,10 @@ const BodyWrapper = ({children}) => {
 		<div
 			style={{
 				display: 'flex',
-				backgroundColor: 'yellow',
 				justifyContent: 'center',
 				alignItems: 'center',
-				flexDirection: 'column'
+				flexDirection: 'column',
+				
 			}}>
 			{children}
 		</div>

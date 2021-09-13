@@ -1,4 +1,3 @@
-// import React from 'react';
 import React, { useState } from "react";
 import { PageWrapper } from "../components";
 import {
@@ -9,6 +8,8 @@ import {
   GiftBodyInfoSender,
   GiftBodyInfoGift,
 } from "../components";
+// import Cookies from 'js-cookie';
+
 
 function Gift() {
   const page = [
@@ -21,38 +22,41 @@ function Gift() {
   ];
 
   const [currentPageId, setCurrentPageId] = useState(0);
-  const [info, setInfo] = useState({
-    sender: {
-      name: "",
-      contact: "",
-    },
-    receiver: {
-      name: "",
-      contact: "",
-    },
-    gift: {
-      gender: "",
-      age: 0,
-      price: 0,
-    },
-  });
+  // const [info, setInfo] = useState({
+  //   sender: {
+  //     name: "주는이",
+  //     contact: "01011112222",
+  //   },
+  //   receiver: {
+  //     name: "받는이",
+  //     contact: "01033334444",
+  //   },
+  //   gift: {
+  //     gender: "",
+  //     age: 0,
+  //     price: 0,
+  //   },
+  // });
+
+  function updateInfo() {
+    console.log("update info");
+		// Cookies.set(`${props.field}`, value);
+    //setInfo(() => {});
+  }
 
   const before = () => {
     setCurrentPageId(currentPageId - 1);
+    updateInfo();
   };
 
   const next = () => {
     setCurrentPageId(currentPageId + 1);
+    updateInfo();
   };
 
   let body = "";
   if (currentPageId === 0) {
-    body = (
-      <GiftBody
-        pagename={page[currentPageId].pagename}
-        next={next}
-      />
-    );
+    body = <GiftBody pagename={page[currentPageId].pagename} next={next} />;
   } else if (currentPageId === 1) {
     body = (
       <GiftBodyInfoSender

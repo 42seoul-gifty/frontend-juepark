@@ -1,33 +1,42 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
+import Cookies from "js-cookie";
 
 const Form = (props) => {
-	const FIELD_NAME = props.field;
-	const [ value, setValue ] = useState(localStorage.FIELD_NAME);
-  
-	const handleChange = ({ target: { value }}) => {
-	  setValue(value);
-		localStorage.setItem(props.field, value);    //예시로 로컬에 저장함    
-	};
-  
-	const handleSubmit = (event) => {
-	  event.preventDefault();
-	}
+  const [value, setValue] = useState(Cookies.get(props.field));
 
-	  console.log(props)
-	  return (
-		<form onSubmit={handleSubmit} autoComplete="on">
-			<label>
-			{props.label}
-			<input
-			  type={props.type}
-			  name={props.field}
-			  value={value}
-			  onChange={handleChange}
-			  placeholder={value || `${props.label}를 입력하세요.`}
-			/>
-			</label>
-		</form>
-	  );
-	};
+  const handleChange = ({ target: { value } }) => {
+    setValue(value);
+    Cookies.set(`${props.field}`, value);
+  };
+
+  const handleKeyDown = () => {
+    console.log("keyDown");
+    Cookies.set(`${props.field}`, value);
+  };
+  
+  return (
+    <div>
+      {props.type !== "button" && (<label>
+        {props.label}
+        <input
+          type={props.type}
+          name={props.field}
+          value={value}
+          onChange={handleChange}
+          placeholder={value || `${props.label}를 입력하세요.`}
+          onKeyDown={handleKeyDown}
+        />
+      </label>)}
+      {props.type === "button" && (
+        <input
+          type={props.type}
+          name={props.field}
+          value={props.label}
+          onClick={handleChange}
+        />)}
+    </div>
+    //</form>
+  );
+};
 
 export default Form;

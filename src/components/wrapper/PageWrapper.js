@@ -5,14 +5,12 @@ const PageWrapper = ({children}) => {
 		<div
 			style={{
 				display: 'flex',
-				backgroundColor: 'skyblue',
-				paddingLeft: 30,
-				paddingRight: 30,
-				paddingTop: 300,
-				paddingBottom: 300,
 				justifyContent: 'center',
 				alignItems: 'center',
-				flexDirection: 'column'
+				flexDirection: 'column',
+				minWidth: '300px',
+				minHeight: '500px',
+				border: '0.5px solid black'
 			}}>
 			{children}
 		</div>
