@@ -7,6 +7,7 @@ import {
 import KakaoCallback from './containers/KakaoCallback'
 import { Gift, Main } from "./containers";
 import Login  from "./containers/Login";
+import CounterContainer from "./Redux/containers/CounterContainer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/login/kakao"><KakaoCallback /></Route>
         <Route exact path="/login"><Login /></Route>
         <Route exact path="/gift"><Gift /></Route>
+        <Route exact path="/redux"><CounterContainer /></Route>
         <Route exact path="/"><Main /></Route>
       </Switch>
       </Router>

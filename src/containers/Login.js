@@ -2,12 +2,9 @@ import React from "react";
 import { PageWrapper } from "../components";
 
 function Login(props) {
-  const CLIENT_ID = "4bc54b0ac02e0bb38661b9a568a0f205";
+  const CLIENT_ID = "1ba26f09773c4e4473835dabe091a18a";
   const REDIRECT_URI =
-    "http://gifty-juepark.s3-website.ap-northeast-2.amazonaws.com/login/kakao";
-  //aws 배포주소
-  //http://gifty-juepark.s3-website.ap-northeast-2.amazonaws.com/login/kakao
-  // const REDIRECT_URI = window.REDIRECT_URI;
+    "http://localhost:3000/callback/kakao";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const kakaoLoginHandler = () => {
