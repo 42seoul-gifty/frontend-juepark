@@ -1,15 +1,14 @@
 import React from "react";
 
-const Form = ({ field, type, label, name, updateName }) => {
+const Form = ({ field, type, label, value, updateValue }) => {
 
   const handleChange = ({ target: { value } }) => {
     console.log(value);
-    updateName(value);
+    updateValue(value);
   };
   
-  const handleKeyDown = () => {
-    console.log(name);
-    //updateName(name);
+  const handleKeyDown = (value) => {
+    handleChange(value);
   };
   
   return (
@@ -19,9 +18,9 @@ const Form = ({ field, type, label, name, updateName }) => {
         <input
           type={type}
           name={field}
-          value={name || ''}
+          value={value || ''}
           onChange={handleChange}
-          placeholder={name || `${label}를 입력하세요.`}
+          placeholder={value || `${label}를 입력하세요.`}
           onKeyDown={handleKeyDown}
         />
       </label>)}
@@ -29,13 +28,12 @@ const Form = ({ field, type, label, name, updateName }) => {
         <input
           type={type}
           name={field}
-          value={label || ''}
+          value={label || 'button'}
           onClick={handleChange}
         />)}
         <div>
       </div>
     </div>
-
   );
 };
 

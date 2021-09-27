@@ -1,22 +1,23 @@
 import React from "react";
 import { PageWrapper, GiftFooter } from "../components";
 import SenderContainer from "../Redux/containers/SenderContainer";
+import ReceiverContainer from "../Redux/containers/ReceiverContainer";
+import GiftContainer from "../Redux/containers/GiftContainer";
 import {
   GiftBody,
   GiftBodyConfirm,
   GiftBodyFinish,
-  GiftBodyInfoReceiver,
   GiftBodyInfoGift,
 } from "../components";
 
 function Gift({ pageId, onIncrease, onDecrease }) {
   const page = [
-    { id: 0, pagename: "gift" }, // before: "" -> history back
+    { id: 0, pagename: "gift" },
     { id: 1, pagename: "info_sender" },
     { id: 2, pagename: "info_receiver" },
     { id: 3, pagename: "info_gift" },
     { id: 4, pagename: "confirm" },
-    { id: 5, pagename: "finish" }, //next: gift
+    { id: 5, pagename: "finish" },
   ];
 
   // const [info, setInfo] = useState({
@@ -41,9 +42,9 @@ function Gift({ pageId, onIncrease, onDecrease }) {
   } else if (pageId === 1) {
     body = <SenderContainer />;
   } else if (pageId === 2) {
-    body = <GiftBodyInfoReceiver />;
+    body = <ReceiverContainer />;
   } else if (pageId === 3) {
-    body = <GiftBodyInfoGift />;
+    body = <GiftContainer />;
   } else if (pageId === 4) {
     body = <GiftBodyConfirm />;
   } else if (pageId === 5) {

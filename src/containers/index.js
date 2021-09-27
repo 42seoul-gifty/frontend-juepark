@@ -9,5 +9,5 @@ export {
 	History,
 	Present,
 	Main,
-	Gift
+	Gift,
 };

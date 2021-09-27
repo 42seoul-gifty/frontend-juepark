@@ -2,23 +2,21 @@
 import React from "react";
 import { connect } from "react-redux";
 import GiftBodyInfoSender from "../../components/body/GiftBodyInfoSender";
-import { updateName } from "../modules/sender";
+import { updateName, updateContact } from "../modules/sender";
 
-const SenderContainer = ({ name, updateName }) => {
+const SenderContainer = ({ name, updateName, contact, updateContact }) => {
   return (
-    <GiftBodyInfoSender name={name} updateName={updateName} />
+    <GiftBodyInfoSender name={name} updateName={updateName} contact={contact} updateContact={updateContact} />
   );
 };
 
-const mapStateToProps = (state) => ({
-  name: state.sender.name,
-});
-                                                                      
-const mapDispatchToProps = (dispatch, state) => ({
-  updateName: (name) => {
-    console.log("name:" + name);
-    dispatch(updateName(name));
+export default connect(
+  state => ({
+    name: state.sender.name,
+    contact: state.sender.contact,
+  }),
+  {
+    updateName,
+    updateContact,
   },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SenderContainer);
+  )(SenderContainer);

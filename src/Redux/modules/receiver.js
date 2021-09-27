@@ -1,6 +1,6 @@
 //액션 타입 정하기 => 모듈이름/타입이름 형식
-const UPDATE_NAME = 'sender/UPDATE_NAME';
-const UPDATE_CONTACT = 'sender/UPDATE_CONTACT';
+const UPDATE_NAME = 'receiver/UPDATE_NAME';
+const UPDATE_CONTACT = 'receiver/UPDATE_CONTACT';
 
 // 액션 생성 함수
 export const updateName = (name) => {
@@ -20,11 +20,11 @@ export const updateContact = (contact) => {
 };
 
 const initialState = {
-	name: "주는이",
-	contact: "01099998888"
+	name: "받는이",
+	contact: "01011112222"
 };
 
-function sender(state = initialState, action) {
+function receiver(state = initialState, action) {
 	console.log(action);
 	switch (action.type) {
 		case UPDATE_NAME:
@@ -42,4 +42,4 @@ function sender(state = initialState, action) {
 	}
 }
 
-export default sender;
+export default receiver;
