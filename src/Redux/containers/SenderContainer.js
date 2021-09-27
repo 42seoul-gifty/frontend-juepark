@@ -13,7 +13,7 @@ const SenderContainer = ({ name, updateName }) => {
 const mapStateToProps = (state) => ({
   name: state.sender.name,
 });
-
+                                                                      
 const mapDispatchToProps = (dispatch, state) => ({
   updateName: (name) => {
     console.log("name:" + name);
