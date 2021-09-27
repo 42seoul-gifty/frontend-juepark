@@ -8,7 +8,7 @@ import GiftBodyFinish from "./body/GiftBodyFinish"
 import GiftBodyInfoGift from "./body/GiftBodyInfoGift"
 import GiftBodyInfoReceiver from "./body/GiftBodyInfoReceiver"
 import GiftBodyInfoSender from "./body/GiftBodyInfoSender"
-import Logo from "./body_element/Logo"
+import BrandLogo from "./body_element/BrandLogo"
 import GiftImage from "./body_element/GiftImage"
 import Hamburger from "./body_element/Hamburger"
 import Message from "./body_element/Message"
@@ -26,7 +26,7 @@ export {
 	GiftBodyInfoGift,
 	GiftBodyConfirm,
 	GiftBodyFinish,
-	Logo,
+	BrandLogo,
 	GiftImage, 
 	Hamburger,
 	Message,

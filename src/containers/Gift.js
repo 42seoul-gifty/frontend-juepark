@@ -1,17 +1,15 @@
-import React, { useState } from "react";
-import { PageWrapper } from "../components";
+import React from "react";
+import { PageWrapper, GiftFooter } from "../components";
+import SenderContainer from "../Redux/containers/SenderContainer";
 import {
   GiftBody,
   GiftBodyConfirm,
   GiftBodyFinish,
   GiftBodyInfoReceiver,
-  GiftBodyInfoSender,
   GiftBodyInfoGift,
 } from "../components";
-// import Cookies from 'js-cookie';
 
-
-function Gift() {
+function Gift({ pageId, onIncrease, onDecrease }) {
   const page = [
     { id: 0, pagename: "gift" }, // before: "" -> history back
     { id: 1, pagename: "info_sender" },
@@ -21,7 +19,6 @@ function Gift() {
     { id: 5, pagename: "finish" }, //next: gift
   ];
 
-  const [currentPageId, setCurrentPageId] = useState(0);
   // const [info, setInfo] = useState({
   //   sender: {
   //     name: "주는이",
@@ -38,66 +35,56 @@ function Gift() {
   //   },
   // });
 
-  function updateInfo() {
-    console.log("update info");
-		// Cookies.set(`${props.field}`, value);
-    //setInfo(() => {});
-  }
-
-  const before = () => {
-    setCurrentPageId(currentPageId - 1);
-    updateInfo();
-  };
-
-  const next = () => {
-    setCurrentPageId(currentPageId + 1);
-    updateInfo();
-  };
-
   let body = "";
-  if (currentPageId === 0) {
-    body = <GiftBody pagename={page[currentPageId].pagename} next={next} />;
-  } else if (currentPageId === 1) {
-    body = (
-      <GiftBodyInfoSender
-        pagename={page[currentPageId].pagename}
-        before={before}
-        next={next}
-      />
-    );
-  } else if (currentPageId === 2) {
-    body = (
-      <GiftBodyInfoReceiver
-        pagename={page[currentPageId].pagename}
-        before={before}
-        next={next}
-      />
-    );
-  } else if (currentPageId === 3) {
-    body = (
-      <GiftBodyInfoGift
-        pagename={page[currentPageId].pagename}
-        before={before}
-        next={next}
-      />
-    );
-  } else if (currentPageId === 4) {
-    body = (
-      <GiftBodyConfirm
-        pagename={page[currentPageId].pagename}
-        before={before}
-        next={next}
-      />
-    );
-  } else if (currentPageId === 5) {
-    body = <GiftBodyFinish pagename={page[currentPageId].pagename} />;
+  if (pageId === 0) {
+    body = <GiftBody />;
+  } else if (pageId === 1) {
+    body = <SenderContainer />;
+  } else if (pageId === 2) {
+    body = <GiftBodyInfoReceiver />;
+  } else if (pageId === 3) {
+    body = <GiftBodyInfoGift />;
+  } else if (pageId === 4) {
+    body = <GiftBodyConfirm />;
+  } else if (pageId === 5) {
+    body = <GiftBodyFinish />;
   } else {
     body = "gift body road error";
+  }
+
+  const sendHome = () => {
+    window.location.assign("/");
+  };
+  const sendGiftMain = () => {
+    window.location.assign("/gift");
+  };
+
+  let before = onDecrease;
+  let next = onIncrease;
+  let beforeText = "돌아가기";
+  let nextText = "다음단계";
+
+  if (pageId === 0) {
+    before = sendHome;
+    nextText = "시작하기";
+  }
+  if (pageId === 5) {
+    before = sendHome;
+    next = sendGiftMain;
+    beforeText = "🏠";
+    nextText = "다른선물하러가기";
   }
 
   return (
     <PageWrapper>
       <div>{body}</div>
+      <p>{pageId}</p>
+      <GiftFooter
+        before={before}
+        next={next}
+        beforeText={beforeText}
+        nextText={nextText}
+      />
     </PageWrapper>
   );
 }

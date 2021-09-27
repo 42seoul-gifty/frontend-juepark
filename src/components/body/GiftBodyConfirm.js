@@ -1,5 +1,5 @@
 import React from "react";
-import { Logo, Desc, Message, BodyWrapper, GiftFooter } from "..";
+import { BrandLogo, Desc, Message, BodyWrapper, GiftFooter } from "..";
 import Cookies from "js-cookie";
 
 function GiftBodyConfirm(props) {
@@ -12,7 +12,7 @@ function GiftBodyConfirm(props) {
   const contents = `${receiver_name} 님께 선물을 보냅니다.`;
   return (
     <BodyWrapper>
-      <Logo />
+      <BrandLogo />
       <Message contents={contents} />
       <Desc contents='' />
       <div>{receiver_name} 님</div>
@@ -20,7 +20,7 @@ function GiftBodyConfirm(props) {
       <div>성별: {gift_gender}</div>
       <div>나이: {gift_age}</div>
       <div>예산: {gift_price}</div>
-      <GiftFooter before={props.before} next={props.next} />
+      {/* <GiftFooter before={props.before} next={props.next} /> */}
     </BodyWrapper>
   );
 }

@@ -1,25 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import Counter from "../../containers/ReduxTest";
+import Gift from "../../containers/Gift";
 import { increase, decrease } from "../modules/counter";
 
-const CounterContainer = ({ number, increase, decrease }) => {
+const CounterContainer = ({ pageId, increase, decrease }) => {
   return (
-    <Counter number={number} onIncrease={increase} onDecrease={decrease} />
+    <Gift pageId={pageId} onIncrease={increase} onDecrease={decrease} />
   );
 };
 
-const mapStateToProps = (state) => ({
-  number: state.counter.number,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  increase: () => {
-    dispatch(increase());
+export default connect(
+  state => ({
+    pageId: state.counter.pageId,
+  }),
+  {
+    increase,
+    decrease,
   },
-  decrease: () => {
-    dispatch(decrease());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CounterContainer);
+  )(CounterContainer);

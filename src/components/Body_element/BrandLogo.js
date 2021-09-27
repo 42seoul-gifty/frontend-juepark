@@ -1,6 +1,6 @@
 import React from "react";
 
-function Logo(props) {
+function BrandLogo(props) {
   return (
     <div>
       <h2>yourwish</h2>
@@ -8,4 +8,4 @@ function Logo(props) {
   );
 }
 
-export default Logo;
+export default BrandLogo;

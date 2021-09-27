@@ -1,41 +1,41 @@
-import React, { useState } from "react";
-import Cookies from "js-cookie";
+import React from "react";
 
-const Form = (props) => {
-  const [value, setValue] = useState(Cookies.get(props.field));
+const Form = ({ field, type, label, name, updateName }) => {
 
   const handleChange = ({ target: { value } }) => {
-    setValue(value);
-    Cookies.set(`${props.field}`, value);
+    console.log(value);
+    updateName(value);
   };
-
+  
   const handleKeyDown = () => {
-    console.log("keyDown");
-    Cookies.set(`${props.field}`, value);
+    console.log(name);
+    //updateName(name);
   };
   
   return (
     <div>
-      {props.type !== "button" && (<label>
-        {props.label}
+      {type !== "button" && (<label>
+        {label}
         <input
-          type={props.type}
-          name={props.field}
-          value={value}
+          type={type}
+          name={field}
+          value={name || ''}
           onChange={handleChange}
-          placeholder={value || `${props.label}를 입력하세요.`}
+          placeholder={name || `${label}를 입력하세요.`}
           onKeyDown={handleKeyDown}
         />
       </label>)}
-      {props.type === "button" && (
+      {type === "button" && (
         <input
-          type={props.type}
-          name={props.field}
-          value={props.label}
+          type={type}
+          name={field}
+          value={label || ''}
           onClick={handleChange}
         />)}
+        <div>
+      </div>
     </div>
-    //</form>
+
   );
 };
 
