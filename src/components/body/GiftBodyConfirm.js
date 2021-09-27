@@ -1,14 +1,13 @@
 import React from "react";
-import { BrandLogo, Desc, Message, BodyWrapper, GiftFooter } from "..";
-import Cookies from "js-cookie";
+import { BrandLogo, Desc, Message, BodyWrapper } from "..";
 
-function GiftBodyConfirm(props) {
-  const gift_gender = Cookies.get('gift_gender');
-  const gift_age = Cookies.get('gift_age');
-  const gift_price = Cookies.get('gift_price');
-  const receiver_name = Cookies.get('receiver_name');
-  const receiver_contact = Cookies.get('receiver_contact');
-
+function GiftBodyConfirm({
+  gift_age,
+  gift_price,
+  gift_gender,
+  receiver_name,
+  receiver_contact,
+}) {
   const contents = `${receiver_name} 님께 선물을 보냅니다.`;
   return (
     <BodyWrapper>

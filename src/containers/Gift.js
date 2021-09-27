@@ -3,38 +3,13 @@ import { PageWrapper, GiftFooter } from "../components";
 import SenderContainer from "../Redux/containers/SenderContainer";
 import ReceiverContainer from "../Redux/containers/ReceiverContainer";
 import GiftContainer from "../Redux/containers/GiftContainer";
+import InfoContainer from "../Redux/containers/infoContainer";
 import {
   GiftBody,
-  GiftBodyConfirm,
   GiftBodyFinish,
-  GiftBodyInfoGift,
 } from "../components";
 
 function Gift({ pageId, onIncrease, onDecrease }) {
-  const page = [
-    { id: 0, pagename: "gift" },
-    { id: 1, pagename: "info_sender" },
-    { id: 2, pagename: "info_receiver" },
-    { id: 3, pagename: "info_gift" },
-    { id: 4, pagename: "confirm" },
-    { id: 5, pagename: "finish" },
-  ];
-
-  // const [info, setInfo] = useState({
-  //   sender: {
-  //     name: "주는이",
-  //     contact: "01011112222",
-  //   },
-  //   receiver: {
-  //     name: "받는이",
-  //     contact: "01033334444",
-  //   },
-  //   gift: {
-  //     gender: "",
-  //     age: 0,
-  //     price: 0,
-  //   },
-  // });
 
   let body = "";
   if (pageId === 0) {
@@ -46,7 +21,7 @@ function Gift({ pageId, onIncrease, onDecrease }) {
   } else if (pageId === 3) {
     body = <GiftContainer />;
   } else if (pageId === 4) {
-    body = <GiftBodyConfirm />;
+    body = <InfoContainer />;
   } else if (pageId === 5) {
     body = <GiftBodyFinish />;
   } else {
@@ -60,20 +35,22 @@ function Gift({ pageId, onIncrease, onDecrease }) {
     window.location.assign("/gift");
   };
 
-  let before = onDecrease;
-  let next = onIncrease;
-  let beforeText = "돌아가기";
-  let nextText = "다음단계";
+  let info = {
+    before: onDecrease,
+    next: onIncrease,
+    beforeText: "돌아가기",
+    nextText: "다음단계",
+  };
 
   if (pageId === 0) {
-    before = sendHome;
-    nextText = "시작하기";
+    info.before = sendHome;
+    info.nextText = "시작하기";
   }
   if (pageId === 5) {
-    before = sendHome;
-    next = sendGiftMain;
-    beforeText = "🏠";
-    nextText = "다른선물하러가기";
+    info.before = sendHome;
+    info.next = sendGiftMain;
+    info.beforeText = "🏠";
+    info.nextText = "다른선물하러가기";
   }
 
   return (
@@ -81,10 +58,10 @@ function Gift({ pageId, onIncrease, onDecrease }) {
       <div>{body}</div>
       <p>{pageId}</p>
       <GiftFooter
-        before={before}
-        next={next}
-        beforeText={beforeText}
-        nextText={nextText}
+        before={info.before}
+        next={info.next}
+        beforeText={info.beforeText}
+        nextText={info.nextText}
       />
     </PageWrapper>
   );

@@ -12,8 +12,9 @@ const ReceiverContainer = ({ age, gender, price, updateAge, updateGender, update
 
 export default connect(
   state => ({
-    name: state.receiver.name,
-    contact: state.receiver.contact,
+    age: state.gift.age,
+    gender: state.gift.gender,
+    price: state.gift.price,
   }),
   {
     updateAge, 
