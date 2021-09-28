@@ -1,14 +1,33 @@
 import React from "react";
 import { BasicButton } from "..";
+import { sendHome, sendGiftMain } from "../../utils/utils"
 
-function GiftFooter({ before, next, beforeText, nextText}) {
-  // console.log(info);
-  // const beforeText = info.beforeText ;
-  // const nextText = info.nextText;
+function GiftFooter({ pageId, onIncrease, onDecrease }) {
+ 
 
-  const sendHome = () => {
-    window.location.assign("/");
+  let footerInfo = {
+    before: undefined,
+    next: undefined,
+    beforeText: "",
+    nextText: "",
   };
+
+  if (pageId === 0) {
+    footerInfo.before = sendHome;
+    footerInfo.nextText = "시작하기";
+  }
+  if (pageId === 4) {
+    footerInfo.next = () => {
+      onIncrease();
+      console.log("GET DATE");
+    };
+  }
+  if (pageId === 5) {
+    footerInfo.before = sendHome;
+    footerInfo.next = sendGiftMain;
+    footerInfo.beforeText = "🏠";
+    footerInfo.nextText = "다른선물하러가기";
+  }
 
   return (
     <div>
@@ -17,8 +36,8 @@ function GiftFooter({ before, next, beforeText, nextText}) {
           display: "flex",
           flexDirection: "row",
         }}>
-        <BasicButton do={before || sendHome} text={beforeText || "돌아가기"} />
-        <BasicButton do={next || sendHome} text={nextText || "다음단계"} />
+        <BasicButton do={footerInfo.before || onDecrease || sendHome} text={footerInfo.beforeText || "돌아가기"} />
+        <BasicButton do={footerInfo.next || onIncrease|| sendHome} text={footerInfo.nextText || "다음단계"} />
       </div>
     </div>
   );

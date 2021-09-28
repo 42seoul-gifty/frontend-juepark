@@ -5,6 +5,7 @@ import {
   Hamburger,
   Message,
   GiftImage,
+  // GiftFooter,
 } from "..";
 
 function GiftBody(props) {
@@ -14,6 +15,7 @@ function GiftBody(props) {
       <Hamburger />
       <Message contents="선물을 시작하세요!"/>
       <GiftImage />
+      {/* <GiftFooter info={props.footerInfo} /> */}
     </BodyWrapper>
   );
 }
