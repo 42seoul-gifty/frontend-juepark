@@ -1,33 +1,37 @@
-
 import React from "react";
 import { connect } from "react-redux";
-import { GiftBodyConfirm } from "../../components";
+import { GiftFooter } from "../../components";
+import { increase, decrease } from "../modules/counter";
 
-const InfoContainer = ({
+const GiftFooterContainer = ({
   gift_age,
   gift_price,
   gift_gender,
-  receiver_name,
-  receiver_contact,
+  pageId,
+  increase,
+  decrease
 }) => {
   return (
-    <GiftBodyConfirm
+    <GiftFooter
+    pageId={pageId}
     gift_age={gift_age} 
     gift_price={gift_price} 
     gift_gender={gift_gender} 
-    receiver_name={receiver_name} 
-    receiver_contact={receiver_contact}/>
+    onIncrease={increase}
+    onDecrease={decrease}
+    />
   );
 };
 
 export default connect(
   state => ({
+    pageId: state.counter.pageId,
     gift_age: state.gift.age,
     gift_price: state.gift.price,
     gift_gender: state.gift.gender,
-    receiver_name: state.receiver.name,
-    receiver_contact: state.receiver.contact,
   }),
   {
+    increase,
+    decrease
   },
-  )(InfoContainer);
+  )(GiftFooterContainer);

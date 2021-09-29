@@ -1,27 +1,30 @@
 import React from "react";
-import { PageWrapper, GiftFooter } from "../components";
-import SenderContainer from "../Redux/containers/SenderContainer";
-import ReceiverContainer from "../Redux/containers/ReceiverContainer";
-import GiftContainer from "../Redux/containers/GiftContainer";
-import InfoContainer from "../Redux/containers/infoContainer";
+import { PageWrapper } from "../components";
+import {
+  SenderInfoContainer,
+  ReceiverInfoContainer,
+  GiftInfoContainer,
+  GiftFooterContainer,
+  ComfirmContainer
+ } from "../Redux/containers";
 import {
   GiftBody,
   GiftBodyFinish,
 } from "../components";
 
-function Gift({ pageId, onIncrease, onDecrease }) {
-  
+function Gift({ pageId }) {
+
   let body = "";
   if (pageId === 0) {
     body = <GiftBody />;
   } else if (pageId === 1) {
-    body = <SenderContainer  />;
+    body = <SenderInfoContainer  />;
   } else if (pageId === 2) {
-    body = <ReceiverContainer  />;
+    body = <ReceiverInfoContainer  />;
   } else if (pageId === 3) {
-    body = <GiftContainer  />;
+    body = <GiftInfoContainer  />;
   } else if (pageId === 4) {
-    body = <InfoContainer  />;
+    body = <ComfirmContainer  />;
   } else if (pageId === 5) {
     body = <GiftBodyFinish  />;
   } else {
@@ -32,11 +35,7 @@ function Gift({ pageId, onIncrease, onDecrease }) {
     <PageWrapper>
       <div>{body}</div>
       <p>{pageId}</p>
-      <GiftFooter
-        pageId={pageId}
-        onDecrease={onDecrease}
-        onIncrease={onIncrease}
-      />
+      <GiftFooterContainer />
     </PageWrapper>
   );
 }

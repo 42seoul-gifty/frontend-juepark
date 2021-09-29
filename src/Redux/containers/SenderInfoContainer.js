@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import GiftBodyInfoSender from "../../components/body/GiftBodyInfoSender";
 import { updateName, updateContact } from "../modules/sender";
 
-const SenderContainer = ({ name, updateName, contact, updateContact }) => {
+const SenderInfoContainer = ({ name, updateName, contact, updateContact }) => {
   return (
     <GiftBodyInfoSender name={name} updateName={updateName} contact={contact} updateContact={updateContact} />
   );
@@ -19,4 +19,4 @@ export default connect(
     updateName,
     updateContact,
   },
-  )(SenderContainer);
+  )(SenderInfoContainer);
