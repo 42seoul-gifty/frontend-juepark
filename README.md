@@ -9,8 +9,7 @@
 node --version
 ```
 
-- 설치되어있지 않다면 설치한다.
-[플랫폼에 맞게 설치](https://nodejs.org/ko/download/)
+- 설치되어있지 않다면 [설치](https://nodejs.org/ko/download/)한다.(플랫폼에 맞게 설치)
 
 - node를 설치하면 npm을 사용할 수 있다.
   npm: node package manager
