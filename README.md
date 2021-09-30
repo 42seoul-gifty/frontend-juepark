@@ -1,5 +1,7 @@
 # frontend-juepark
 `Create-React-App`
+
+## 실행하기
 - Mac OS 기준
 
 **[clone 전 환경설정]**
