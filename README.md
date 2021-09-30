@@ -1,4 +1,5 @@
 # frontend-juepark
+`Create-React-App`
 - Mac OS 기준
 
 **[clone 전 환경설정]**
