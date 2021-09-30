@@ -1,4 +1,5 @@
 # frontend-juepark
+- Mac OS 기준
 
 **[clone 전 환경설정]**
 
@@ -11,8 +12,27 @@ node --version
 
 - 설치되어있지 않다면 [설치](https://nodejs.org/ko/download/)한다.(플랫폼에 맞게 설치)
 
-- node를 설치하면 npm을 사용할 수 있다.   
-  npm: node package manager   
+- node를 설치하면 npm을 사용할 수 있습니다.   
+  `npm: node package manager`   
+
+   
+2. Homebrew 설치되어있지 않다면 [Homebrew 먼저 설치](https://github.com/Homebrew/install)   
+- 설치확인 명령어
+```bash
+brew help
+```
+- 명령어 안내가 나오면 설치 완료.   
+
+3. Git 설치   
+
+- 설치 명령어
+```bash
+brew install git
+```
+- 설치확인 명령어
+```bash
+git --version
+```
 
 
 **[로컬에서 설치 및 실행]**
@@ -53,6 +73,8 @@ cd frontend-juepark
 ```bash
 code .
 ```
+- `code .`이 작동하지 않는 경우 해결방법
+  - Visual Studio Code 열기 > Command Palette(command + shift + p) > install `code` commend in PATH 선택   
 
 * Visual Studio Code 프로그램 열기
   * `Open folder` 누르고 저장소 찾아 열기  
