@@ -1,5 +1,21 @@
 # frontend-juepark
 
+**[clone 전 환경설정]**
+
+1.node 설치
+
+- 버전확인 명령어
+```bash
+node --version
+```
+
+- 설치되어있지 않다면 설치한다.
+[플랫폼에 맞게 설치](https://nodejs.org/ko/download/)
+
+- node를 설치하면 npm을 사용할 수 있다.
+  npm: node package manager
+
+
 **[로컬에서 설치 및 실행]**
 
 1. `git clone`으로 저장소를 받아옵니다.
