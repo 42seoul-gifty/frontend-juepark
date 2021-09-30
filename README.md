@@ -11,8 +11,8 @@ node --version
 
 - 설치되어있지 않다면 [설치](https://nodejs.org/ko/download/)한다.(플랫폼에 맞게 설치)
 
-- node를 설치하면 npm을 사용할 수 있다.
-  npm: node package manager
+- node를 설치하면 npm을 사용할 수 있다.   
+  npm: node package manager   
 
 
 **[로컬에서 설치 및 실행]**
@@ -42,12 +42,20 @@ npm start
 
 - commit 후 push를 하면 github action으로 자동으로 배포가 됩니다.
 
-1. 저장소가 저장된 폴더에서 Visual Studio Code를 실행합니다.
+1. 터미널에서 Visual Studio Code를 실행하거나 Visual Studio Code에서 해당 폴더를 엽니다.
 
+* Terminal에서 vsc열기
+  * 레포안으로 이동
 ```bash
 cd frontend-juepark
+```
+  * Visual Studio Code열기
+```bash
 code .
 ```
+
+* Visual Studio Code 프로그램 열기
+  * `Open folder` 누르고 저장소 찾아 열기  
 
 2. commit, push 합니다.
 
