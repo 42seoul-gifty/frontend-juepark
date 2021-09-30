@@ -5,7 +5,8 @@
 
 ### 실행하기
 - Mac OS 기준
-   
+<br/>
+
    
 **[clone 전 환경설정]**
 
@@ -39,7 +40,7 @@ brew install git
 ```bash
 git --version
 ```
-
+<br/>
 
 **[로컬에서 설치 및 실행]**
 
