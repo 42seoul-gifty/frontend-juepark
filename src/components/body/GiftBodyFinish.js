@@ -1,5 +1,5 @@
 import React from "react";
-import { BodyWrapper, GiftFooter, Message, Desc } from "..";
+import { BodyWrapper, Message, Desc } from "..";
 
 function GiftBodyFinish(props) {
 

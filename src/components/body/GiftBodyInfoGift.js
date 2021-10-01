@@ -1,5 +1,5 @@
 import React from "react";
-import { BodyWrapper, BrandLogo, GiftFooter, Message, Desc, Form } from "..";
+import { BodyWrapper, BrandLogo, Message, Desc, Form } from "..";
 
 function GiftBodyInfoGift({ age, price, gender, updateAge, updateGender, updatePrice }) {
   return (

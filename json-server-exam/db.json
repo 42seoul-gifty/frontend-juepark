@@ -1,19 +1,64 @@
 {
-	"products": [
+	"users": {
+		"data":[
+			{
+				"success": true,
+				"data": {
+					"id": 0,
+					"nickname": "juepark",
+					"email": "joso0702@naver.com"
+				},
+				"message": "message"
+			},
+			{
+				"success": true,
+				"data": {
+					"id": 1,
+					"nickname": "yekim",
+					"email": "gigae0420@naver.com"
+				},
+				"message": "message"
+			}
+		]
+	},
+	"products": {
+	"success": true,
+	"data" : [
 		{
-			"id": 1,
-			"content": "HTML",
-			"completed": true
+			"success": true,
+			"data": {
+				"id": 0,
+				"name": "coffee",
+				"description": "instant coffee stick",
+				"detail": "50ea",
+				"thumbnail": "",
+				"image_url" : [""],
+				"price": 5
+			},
+			"message": "gift list"
 		},
 		{
-			"id": 2,
-			"content": "CSS",
-			"completed": true
-		},
-		{
-			"id": 3,
-			"content": "JavaScript",
-			"completed": true
+			"success": true,
+			"data": {
+				"id": 1,
+				"name": "meat",
+				"description": "소고기",
+				"detail": "500g",
+				"thumbnail": "",
+				"image_url" : [""],
+				"price": 5
+			},
+			"message": "gift list"
 		}
-	]
+	],
+	"message": "message"
+	},
+	"auth": {
+		"success": true,
+		"data":{
+		"access_token": "fake access token",
+		"refresh_token": "fake refresh token"
+		},
+		"message":"message"
+	}
 }

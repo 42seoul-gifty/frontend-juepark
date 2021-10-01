@@ -10,7 +10,7 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route exact path='/login/kakao'>
+          <Route exact path='/callback/kakao'>
             <KakaoCallback />
           </Route>
           <Route exact path='/login'>
