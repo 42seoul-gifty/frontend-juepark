@@ -4,34 +4,34 @@ import { GiftFooter } from "../../components";
 import { increase, decrease } from "../modules/counter";
 
 const GiftFooterContainer = ({
-  gift_age,
+  receiver_age,
   gift_price,
-  gift_gender,
+  receiver_gender,
   pageId,
   increase,
-  decrease
+  decrease,
 }) => {
   return (
     <GiftFooter
-    pageId={pageId}
-    gift_age={gift_age} 
-    gift_price={gift_price} 
-    gift_gender={gift_gender} 
-    onIncrease={increase}
-    onDecrease={decrease}
+      pageId={pageId}
+      receiver_age={receiver_age}
+      gift_price={gift_price}
+      receiver_gender={receiver_gender}
+      onIncrease={increase}
+      onDecrease={decrease}
     />
   );
 };
 
 export default connect(
-  state => ({
+  (state) => ({
     pageId: state.counter.pageId,
-    gift_age: state.gift.age,
+    receiver_age: state.gift.age,
     gift_price: state.gift.price,
-    gift_gender: state.gift.gender,
+    receiver_gender: state.gift.gender,
   }),
   {
     increase,
-    decrease
-  },
-  )(GiftFooterContainer);
+    decrease,
+  }
+)(GiftFooterContainer);

@@ -15,7 +15,6 @@ import {
 } from "../redux/containers";
 import { GiftBody, GiftBodyFinish } from "../components";
 import { useDispatch, useSelector } from "react-redux";
-import { createReplacementSenderAction } from "../redux/slice";
 
 /**
  * @typedef {Object} GiftProps
@@ -52,31 +51,8 @@ function Gift({ pageId: pageIdOld, optionalProperty }, param1) {
   if (pageId === 0) {
     body = <GiftBody />;
   } else if (pageId === 1) {
-    // body = <SenderInfoContainer />;
-    body = (
-      <GiftBodyInfoSender
-        name={sender.name}
-        contact={sender.contact}
-        updateName={(newName) =>
-          dispatch(
-            createReplacementSenderAction({
-              ...sender,
-              name: newName,
-            })
-          )
-        }
-        updateContact={(newContact) =>
-          dispatch(
-            createReplacementSenderAction({
-              ...sender,
-              contact: newContact,
-            })
-          )
-        }
-      />
-    );
+    body = <GiftBodyInfoSender />;
   } else if (pageId === 2) {
-    // body = <ReceiverInfoContainer />;
     body = <GiftBodyInfoReceiver />;
   } else if (pageId === 3) {
     // body = <GiftInfoContainer />;
@@ -95,9 +71,9 @@ function Gift({ pageId: pageIdOld, optionalProperty }, param1) {
       <p>{pageIdOld}</p>
       {/* <GiftFooterContainer /> */}
       <GiftFooter
-        gift_age={receiver.age}
+        receiver_age={receiver.age}
         gift_price={gift.price}
-        gift_gender={receiver.gender}
+        receiver_gender={receiver.gender}
         pageId={pageId}
         onIncrease={onIncrease}
         onDecrease={onDecrease}

@@ -5,9 +5,9 @@ import { sendHome, sendGiftMain } from "../../utils/utils";
 import { SERVER_URI } from "../../utils/constantValue";
 
 function GiftFooter({
-  gift_age,
+  receiver_age,
   gift_price,
-  gift_gender,
+  receiver_gender,
   pageId,
   onIncrease,
   onDecrease,
@@ -19,7 +19,7 @@ function GiftFooter({
     nextText: "",
   };
   let giftList = "";
-  // const QUERY_STR = `?price=${gift_price}&gender=${gift_gender}&age=${gift_age}`;
+  // const QUERY_STR = `?price=${gift_price}&gender=${receiver_gender}&age=${receiver_age}`;
   const QUERY_STR = "?price=1&gender=1&age=1";
   async function getGiftList() {
     const fetchedData = await fetch(`${SERVER_URI}/products${QUERY_STR}`, {
