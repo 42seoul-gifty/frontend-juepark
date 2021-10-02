@@ -1,12 +1,8 @@
 import React from "react";
 import { PageWrapper } from "../components";
+import { KAKAO_AUTH_URL } from "../utils/constantValue";
 
 function Login(props) {
-  const CLIENT_ID = "4bc54b0ac02e0bb38661b9a568a0f205";
-  const REDIRECT_URI =
-    "http://localhost:3000/callback/kakao";
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-
   const kakaoLoginHandler = () => {
     window.location.assign(KAKAO_AUTH_URL);
   };

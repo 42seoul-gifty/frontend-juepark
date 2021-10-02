@@ -2,6 +2,7 @@ import React from "react";
 import { BasicButton } from "..";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../utils/constantValue";
 import { sendHome, sendGiftMain } from "../../utils/utils";
+import { SERVER_URI } from "../../utils/constantValue";
 
 function GiftFooter({
   gift_age,
@@ -18,18 +19,20 @@ function GiftFooter({
     nextText: "",
   };
   let giftList = "";
+  // const QUERY_STR = `?price=${gift_price}&gender=${gift_gender}&age=${gift_age}`;
+  const QUERY_STR = "?price=1&gender=1&age=1";
   async function getGiftList() {
-    const fetchedData = await fetch("http://localhost:3001/products", {
+    const fetchedData = await fetch(`${SERVER_URI}/products${QUERY_STR}`, {
       method: "GET",
       headers: {
-        AccessToken: ACCESS_TOKEN,
-        RefreshToken: REFRESH_TOKEN,
+        Authorization: `Bearer ${ACCESS_TOKEN}`,
       },
     })
-      .then(async (response) => {
-        const result = await response.json();
-        return result;
-      })
+      // .then(async (response) => {
+      //   const result = await response.json();
+      //   return result;
+      // })
+      .then((res) => res.json())
       .then((data) => {
         return data;
       })
