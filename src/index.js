@@ -2,18 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import { store } from "./redux/slice";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import rootReducer from "./Redux/modules";
+import rootReducer from "./redux/modules";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(rootReducer, composeWithDevTools());
+const storeDeprecated = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <>
+    {/* <Provider store={storeDeprecated}> */}
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </>,
   document.getElementById("root")
 );
 

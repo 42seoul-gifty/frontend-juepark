@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import KakaoCallback from "./containers/KakaoCallback";
-import { Main } from "./containers";
+import { Gift, Main } from "./containers";
 import Login from "./containers/Login";
-import GiftContainer from "./Redux/containers/GiftContainer";
+import GiftContainer from "./redux/containers/GiftContainer";
 
 function App() {
   return (
@@ -17,7 +17,8 @@ function App() {
             <Login />
           </Route>
           <Route exact path='/gift'>
-            <GiftContainer />
+            {/* <GiftContainer /> */}
+            <Gift />
           </Route>
           <Route exact path='/'>
             <Main />

@@ -39,7 +39,7 @@ function KakaoCallback(props) {
     if (code !== "") {
       console.log("get code success");
       console.log(code);
-      //getResult();
+      getResult();
     } else {
       console.log("get code failure");
       window.location.assign("/");
