@@ -5,7 +5,6 @@ function KakaoCallback(props) {
   let code = "";
 
   async function getResult() {
-    // 수정 필요(주소)
     const fetchedData = await fetch(`${SERVER_URI}/login/kakao`, {
       method: "GET",
       headers: {
@@ -16,7 +15,6 @@ function KakaoCallback(props) {
         const result = await res.json();
         const ACCESS_TOKEN = result.data.access_token;
         const REFRESH_TOKEN = result.data.refresh_token;
-        //로컬에 저장함(약속된 사항)
         console.log("result:");
         console.log(result);
         console.log("ACCESS_TOKEN renew:");
@@ -25,14 +23,12 @@ function KakaoCallback(props) {
         localStorage.setItem("refresh_token", REFRESH_TOKEN);
         window.location.assign("/");
         return result;
-        // history.goBack();
       })
       .then((data) => {
         return data;
       })
       .catch((error) => console.log("error"))
       .finally(() => {
-        // history.goBack();
         window.location.assign("/");
       });
     console.log(fetchedData);

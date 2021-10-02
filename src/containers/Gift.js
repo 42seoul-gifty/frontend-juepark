@@ -5,30 +5,36 @@ import {
   ReceiverInfoContainer,
   GiftInfoContainer,
   GiftFooterContainer,
-  ComfirmContainer
- } from "../Redux/containers";
-import {
-  GiftBody,
-  GiftBodyFinish,
-} from "../components";
+  ComfirmContainer,
+} from "../Redux/containers";
+import { GiftBody, GiftBodyFinish } from "../components";
 
-function Gift({ pageId }) {
+/**
+ * @typedef {Object} GiftProps
+ * @property {number} pageId
+ * @property {string} [optionalProperty]
+ */
 
-  let body = "";
+/**
+ * @param {GiftProps} param0
+ * @param {number} [param1] // 있어도 되고 없어도 된다.
+ */
+function Gift({ pageId, optionalProperty }, param1) {
+  let body = <>""</>;
   if (pageId === 0) {
     body = <GiftBody />;
   } else if (pageId === 1) {
-    body = <SenderInfoContainer  />;
+    body = <SenderInfoContainer />;
   } else if (pageId === 2) {
-    body = <ReceiverInfoContainer  />;
+    body = <ReceiverInfoContainer />;
   } else if (pageId === 3) {
-    body = <GiftInfoContainer  />;
+    body = <GiftInfoContainer />;
   } else if (pageId === 4) {
-    body = <ComfirmContainer  />;
+    body = <ComfirmContainer />;
   } else if (pageId === 5) {
-    body = <GiftBodyFinish  />;
+    body = <GiftBodyFinish />;
   } else {
-    body = "gift body road error";
+    body = <>"gift body road error"</>;
   }
 
   return (
@@ -39,5 +45,7 @@ function Gift({ pageId }) {
     </PageWrapper>
   );
 }
+
+<Gift pageId={123}></Gift>;
 
 export default Gift;

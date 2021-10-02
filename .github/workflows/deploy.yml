@@ -15,8 +15,8 @@ jobs:
         id: yarn-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
+          key: ${{ runner.os }}-npm-lock-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-lock-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -28,8 +28,8 @@ jobs:
         with:
           node-version: 14.x
       - name: Install dependencies
-        run: yarn
+        run: npm
       - name: Build
-        run: yarn build
+        run: npm run build
       - name: Deploy
         run: aws s3 sync ./build s3://gifty-juepark
