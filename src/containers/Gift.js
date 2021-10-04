@@ -8,7 +8,6 @@ import {
   PageWrapper,
 } from "../components";
 import { GiftBody, GiftBodyFinish } from "../components";
-import { useDispatch, useSelector } from "react-redux";
 
 /**
  * @typedef {Object} GiftProps
@@ -20,10 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
  * @param {GiftProps} param0
  * @param {number} [param1] // 있어도 되고 없어도 된다.
  */
-function Gift({ pageId: pageIdOld, optionalProperty }, param1) {
-  let body = <>""</>;
-  const dispatch = useDispatch();
-
+function Gift({ optionalProperty }, param1) {
   const [pageId, setPageId] = useState(0);
 
   const onIncrease = useCallback(() => {
@@ -34,14 +30,7 @@ function Gift({ pageId: pageIdOld, optionalProperty }, param1) {
     setPageId((pageId) => pageId - 1);
   }, []);
 
-  const { gift, receiver, sender } = useSelector((state) => {
-    return {
-      gift: state.info.gift,
-      receiver: state.info.receiver,
-      sender: state.info.sender,
-    };
-  });
-
+  let body = <div>"gift body road error"</div>;
   if (pageId === 0) {
     body = <GiftBody />;
   } else if (pageId === 1) {
@@ -54,15 +43,11 @@ function Gift({ pageId: pageIdOld, optionalProperty }, param1) {
     body = <GiftBodyConfirm />;
   } else if (pageId === 5) {
     body = <GiftBodyFinish />;
-  } else {
-    body = <>"gift body road error"</>;
   }
 
   return (
     <PageWrapper>
       <div>{body}</div>
-      <p>{pageIdOld}</p>
-      {/* <GiftFooterContainer /> */}
       <GiftFooter
         pageId={pageId}
         onIncrease={onIncrease}
@@ -71,7 +56,5 @@ function Gift({ pageId: pageIdOld, optionalProperty }, param1) {
     </PageWrapper>
   );
 }
-
-<Gift pageId={123}></Gift>;
 
 export default Gift;

@@ -15,7 +15,6 @@ function GiftBodyInfoGift() {
     };
   });
   const age = receiver.age;
-  const gender = receiver.gender;
   const price = gift.price;
 
   const updateAge = (newAge) => {
@@ -93,8 +92,6 @@ function GiftBodyInfoGift() {
         onChange={handlePriceChange}
         placeholder={price || "금액을 입력하세요."}
       />
-
-      {/* <GiftFooter before={props.before} next={props.next} /> */}
     </BodyWrapper>
   );
 }

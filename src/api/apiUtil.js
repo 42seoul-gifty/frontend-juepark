@@ -13,7 +13,6 @@ async function apiUtil(method, route, params) {
       Authorization: `Bearer ${ACCESS_TOKEN}`,
     },
   });
-  //   console.log(res);
   return res.json();
 }
 

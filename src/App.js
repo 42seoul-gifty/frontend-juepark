@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import KakaoCallback from "./containers/KakaoCallback";
-import { Gift, Main } from "./containers";
+import { Gift, Main, KakaoCallback, NaverCallback } from "./containers";
 import Login from "./containers/Login";
 
 function App() {
@@ -11,6 +10,9 @@ function App() {
         <Switch>
           <Route exact path='/callback/kakao'>
             <KakaoCallback />
+          </Route>
+          <Route exact path='/callback/naver'>
+            <NaverCallback />
           </Route>
           <Route exact path='/login'>
             <Login />

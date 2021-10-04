@@ -1,10 +1,7 @@
 import React from "react";
 import { BasicButton } from "..";
 import { sendHome, sendGiftMain } from "../../utils/utils";
-import { useSelector } from "react-redux";
 import getProductList from "../../api/getProductList";
-import getUserInfo from "../../api/getUserInfo";
-import getProductDetail from "../../api/getProductDetail";
 
 function GiftFooter({ pageId, onIncrease, onDecrease }) {
   let footerInfo = {
@@ -14,17 +11,6 @@ function GiftFooter({ pageId, onIncrease, onDecrease }) {
     nextText: "",
   };
   let productList = "";
-
-  const { gift, receiver } = useSelector((state) => {
-    return {
-      gift: state.info.gift,
-      receiver: state.info.receiver,
-    };
-  });
-
-  const age = receiver.age;
-  const gender = receiver.gender;
-  const price = gift.price;
 
   // async function payment() {
   //   console.log("try to pay");
@@ -36,8 +22,7 @@ function GiftFooter({ pageId, onIncrease, onDecrease }) {
   }
   if (pageId === 4) {
     footerInfo.next = async () => {
-      // productList = await getProductList(1, 1, 1);
-      productList = await getProductDetail(1);
+      productList = await getProductList(1, 1, 1);
       onIncrease();
       console.log(productList);
     };
