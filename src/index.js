@@ -5,19 +5,11 @@ import App from "./App";
 import { store } from "./redux/slice";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import rootReducer from "./redux/modules";
-import { composeWithDevTools } from "redux-devtools-extension";
-
-const storeDeprecated = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
-  <>
-    {/* <Provider store={storeDeprecated}> */}
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
 

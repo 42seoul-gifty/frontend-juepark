@@ -1,11 +1,11 @@
 import React from "react";
-import { SERVER_URI } from "../utils/constantValue";
+import { ENDPOINT } from "../utils/constantValue";
 
 function KakaoCallback(props) {
   let code = "";
 
   async function getResult() {
-    const fetchedData = await fetch(`${SERVER_URI}/login/kakao`, {
+    const fetchedData = await fetch(`${ENDPOINT}/login/kakao`, {
       method: "GET",
       headers: {
         "Authorization-Code": code,

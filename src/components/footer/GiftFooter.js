@@ -2,7 +2,9 @@ import React from "react";
 import { BasicButton } from "..";
 import { sendHome, sendGiftMain } from "../../utils/utils";
 import { useSelector } from "react-redux";
-import getGiftList from "../../api/getGiftList";
+import getProductList from "../../api/getProductList";
+import getUserInfo from "../../api/getUserInfo";
+import getProductDetail from "../../api/getProductDetail";
 
 function GiftFooter({ pageId, onIncrease, onDecrease }) {
   let footerInfo = {
@@ -11,7 +13,7 @@ function GiftFooter({ pageId, onIncrease, onDecrease }) {
     beforeText: "",
     nextText: "",
   };
-  let giftList = "";
+  let productList = "";
 
   const { gift, receiver } = useSelector((state) => {
     return {
@@ -34,9 +36,10 @@ function GiftFooter({ pageId, onIncrease, onDecrease }) {
   }
   if (pageId === 4) {
     footerInfo.next = async () => {
-      giftList = await getGiftList(1, 1, 1);
+      // productList = await getProductList(1, 1, 1);
+      productList = await getProductDetail(1);
       onIncrease();
-      console.log(giftList);
+      console.log(productList);
     };
   }
   if (pageId === 5) {
@@ -61,6 +64,7 @@ function GiftFooter({ pageId, onIncrease, onDecrease }) {
           do={footerInfo.next || onIncrease || sendHome}
           text={footerInfo.nextText || "다음단계"}
         />
+        {/* <button type="button" onClick={getUserInfo(0)}>user info</button> */}
       </div>
     </div>
   );

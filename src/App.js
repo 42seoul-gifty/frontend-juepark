@@ -16,7 +16,6 @@ function App() {
             <Login />
           </Route>
           <Route exact path='/gift'>
-            {/* <GiftContainer /> */}
             <Gift />
           </Route>
           <Route exact path='/'>

@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { PageWrapper } from "../components";
 import { BasicButton } from "../components";
-import {
-  ACCESS_TOKEN,
-  REFRESH_TOKEN,
-  SERVER_URI,
-} from "../utils/constantValue";
+import { ACCESS_TOKEN, REFRESH_TOKEN, ENDPOINT } from "../utils/constantValue";
 
 function Main(props) {
   // check if user logged in
@@ -16,7 +12,7 @@ function Main(props) {
   }
 
   // async function getUserDetail() {
-  //   const fetchedData = await fetch(`${SERVER_URI}/users/${userId}`, {
+  //   const fetchedData = await fetch(`${ENDPOINT}/users/${userId}`, {
   //     method: "GET",
   //     headers: {
   //       AccessToken: ACCESS_TOKEN,
@@ -33,7 +29,7 @@ function Main(props) {
   //   onIncrease();
   // }
   async function renewAccessToken() {
-    const fetchedData = await fetch(`${SERVER_URI}/token/refresh`, {
+    const fetchedData = await fetch(`${ENDPOINT}/token/refresh`, {
       method: "GET",
       headers: {
         refresh_token: `Bearer ${REFRESH_TOKEN}`,

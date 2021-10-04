@@ -25,7 +25,7 @@ const info = {
     price: 1,
   },
 };
-
+//getUserInfo
 test(`${info.case[0]} ${++info.num}. ${
   info.userId
 }번 user 조회 테스트입니다.`, async () => {
@@ -40,6 +40,7 @@ test(`${info.case[0]} ${++info.num}. ${
   expect(axiosData.data).toHaveProperty("id", info.userId);
 });
 
+// getProductList
 // test(`${
 //   info.case[0]
 // } ${++info.num}. 주문을 위한 preference에 따른 상품 조회 테스트입니다.`, async () => {
@@ -54,6 +55,7 @@ test(`${info.case[0]} ${++info.num}. ${
 //   expect(axiosData).toHaveProperty("success", true);
 // });
 
+//postOrder
 test(`${info.case[0]} ${++info.num}. 주문 생성 테스트입니다.`, async () => {
   const userData = {
     giver_name: "주는이",
@@ -73,6 +75,7 @@ test(`${info.case[0]} ${++info.num}. 주문 생성 테스트입니다.`, async (
   expect(orderDetail).toHaveProperty("success", true);
 });
 
+//getOrderDetail
 test(`${
   info.case[0]
 } ${++info.num}. 주문 생성 확인 테스트입니다.`, async () => {
@@ -86,6 +89,7 @@ test(`${
   expect(orderDetail).toHaveProperty("success", true);
 });
 
+// getReceiverInfo
 test(`${
   info.case[1]
 } ${++info.num}. 특정 수신자 조회 테스트입니다.`, async () => {
@@ -99,6 +103,7 @@ test(`${
   expect(receiverDetail).toHaveProperty("success", true);
 });
 
+// 나중에
 test(`${info.case[1]} ${++info.num}. ${
   info.receiverId
 }번 수신자 필터에 따른 선물 목록 조회 테스트입니다.`, async () => {
@@ -111,6 +116,7 @@ test(`${info.case[1]} ${++info.num}. ${
   expect(choiceList).toHaveProperty("success", true);
 });
 
+// 나중에
 test(`${info.case[1]} ${++info.num}. ${
   info.receiverId
 }번 수신자 선물 선택 테스트입니다.`, async () => {
@@ -131,19 +137,21 @@ test(`${info.case[1]} ${++info.num}. ${
   expect(choiceResult).toHaveProperty("success", true);
 });
 
-test(`${
-  info.case[1]
-} ${++info.num}. 선택 상품 확인 테스트입니다.`, async () => {
-  const url = `${info.endPoint}/products/${info.productCode}`;
-  const axiosResult = await spyAxiosGet(url);
-  const productDetail = axiosResult.data;
-  console.log("선택된 상품 디테일 조회:", productDetail);
+// getProductDetail
+// test(`${
+//   info.case[1]
+// } ${++info.num}. 선택 상품 확인 테스트입니다.`, async () => {
+//   const url = `${info.endPoint}/products/${info.productCode}`;
+//   const axiosResult = await spyAxiosGet(url);
+//   const productDetail = axiosResult.data;
+//   console.log("선택된 상품 디테일 조회:", productDetail);
 
-  expect(spyAxiosGet).toBeCalledTimes(1);
-  expect(spyAxiosGet).toBeCalledWith(url);
-  expect(productDetail).toHaveProperty("success", true);
-});
+//   expect(spyAxiosGet).toBeCalledTimes(1);
+//   expect(spyAxiosGet).toBeCalledWith(url);
+//   expect(productDetail).toHaveProperty("success", true);
+// });
 
+// getAgesRange
 test(`${
   info.case[1]
 } ${++info.num}. 연령대 범주 확인 테스트입니다.`, async () => {
@@ -156,6 +164,7 @@ test(`${
   expect(ageList).toHaveProperty("success", true);
 });
 
+// getPriceRange
 test(`${
   info.case[1]
 } ${++info.num}. 가격대 범주 확인 테스트입니다.`, async () => {
