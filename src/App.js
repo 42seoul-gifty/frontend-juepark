@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import KakaoCallback from "./containers/KakaoCallback";
 import { Gift, Main } from "./containers";
 import Login from "./containers/Login";
-import GiftContainer from "./redux/containers/GiftContainer";
 
 function App() {
   return (

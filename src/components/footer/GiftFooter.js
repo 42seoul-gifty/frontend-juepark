@@ -1,17 +1,10 @@
 import React from "react";
 import { BasicButton } from "..";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../utils/constantValue";
 import { sendHome, sendGiftMain } from "../../utils/utils";
-import { SERVER_URI } from "../../utils/constantValue";
+import { useSelector } from "react-redux";
+import getGiftList from "../../api/getGiftList";
 
-function GiftFooter({
-  receiver_age,
-  gift_price,
-  receiver_gender,
-  pageId,
-  onIncrease,
-  onDecrease,
-}) {
+function GiftFooter({ pageId, onIncrease, onDecrease }) {
   let footerInfo = {
     before: undefined,
     next: undefined,
@@ -19,36 +12,31 @@ function GiftFooter({
     nextText: "",
   };
   let giftList = "";
-  // const QUERY_STR = `?price=${gift_price}&gender=${receiver_gender}&age=${receiver_age}`;
-  const QUERY_STR = "?price=1&gender=1&age=1";
-  async function getGiftList() {
-    const fetchedData = await fetch(`${SERVER_URI}/products${QUERY_STR}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${ACCESS_TOKEN}`,
-      },
-    })
-      // .then(async (response) => {
-      //   const result = await response.json();
-      //   return result;
-      // })
-      .then((res) => res.json())
-      .then((data) => {
-        return data;
-      })
-      .catch((error) => console.log("error"));
-    giftList = fetchedData;
-    console.log(JSON.stringify(giftList));
-    onIncrease();
-  }
+
+  const { gift, receiver } = useSelector((state) => {
+    return {
+      gift: state.info.gift,
+      receiver: state.info.receiver,
+    };
+  });
+
+  const age = receiver.age;
+  const gender = receiver.gender;
+  const price = gift.price;
+
+  // async function payment() {
+  //   console.log("try to pay");
+  // }
 
   if (pageId === 0) {
     footerInfo.before = sendHome;
     footerInfo.nextText = "시작하기";
   }
   if (pageId === 4) {
-    footerInfo.next = () => {
-      getGiftList();
+    footerInfo.next = async () => {
+      giftList = await getGiftList(1, 1, 1);
+      onIncrease();
+      console.log(giftList);
     };
   }
   if (pageId === 5) {

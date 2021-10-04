@@ -4,7 +4,7 @@ import {
   createReplacementReceiverAction,
   createReplacementGiftAction,
 } from "../../redux/slice";
-import { BodyWrapper, BrandLogo, Message, Desc, Form } from "..";
+import { BodyWrapper, BrandLogo, Message, Desc } from "..";
 
 function GiftBodyInfoGift() {
   const dispatch = useDispatch();
@@ -56,27 +56,27 @@ function GiftBodyInfoGift() {
       <BrandLogo />
       <Message contents='받는 분의 정보를 입력해주세요!' />
       <Desc contents='받는 사람 선물 정보입력' />
-      <Form
-        label='남'
-        field='receiver_gender'
-        type='button'
-        vlaue={gender}
-        updateValue={updateGender}
-      />
-      <Form
-        label='여'
-        field='receiver_gender'
-        type='button'
-        vlaue={gender}
-        updateValue={updateGender}
-      />
-      {/* <Form
-        label='나이'
-        field='receiver_age'
-        type='number'
-        value={age}
-        updateValue={updateAge}
-      /> */}
+      <div>
+        <input
+          type='radio'
+          id='male'
+          name='gender'
+          value='남'
+          onClick={() => updateGender("male")}
+        />
+        <label htmlFor='male'>남</label>
+      </div>
+      <div>
+        <input
+          type='radio'
+          id='female'
+          name='gender'
+          value='여'
+          onClick={() => updateGender("female")}
+        />
+        <label htmlFor='female'>여</label>
+      </div>
+
       <p>나이</p>
       <input
         type='number'
@@ -93,13 +93,7 @@ function GiftBodyInfoGift() {
         onChange={handlePriceChange}
         placeholder={price || "금액을 입력하세요."}
       />
-      {/* <Form
-        label='가격대'
-        field='gift_price'
-        type='number'
-        value={price}
-        updateValue={updatePrice}
-      /> */}
+
       {/* <GiftFooter before={props.before} next={props.next} /> */}
     </BodyWrapper>
   );

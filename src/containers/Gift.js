@@ -1,18 +1,12 @@
 import React, { useCallback, useState } from "react";
 import {
+  GiftBodyConfirm,
   GiftBodyInfoGift,
   GiftBodyInfoReceiver,
   GiftBodyInfoSender,
   GiftFooter,
   PageWrapper,
 } from "../components";
-import {
-  SenderInfoContainer,
-  ReceiverInfoContainer,
-  GiftInfoContainer,
-  GiftFooterContainer,
-  ComfirmContainer,
-} from "../redux/containers";
 import { GiftBody, GiftBodyFinish } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -55,10 +49,9 @@ function Gift({ pageId: pageIdOld, optionalProperty }, param1) {
   } else if (pageId === 2) {
     body = <GiftBodyInfoReceiver />;
   } else if (pageId === 3) {
-    // body = <GiftInfoContainer />;
     body = <GiftBodyInfoGift />;
   } else if (pageId === 4) {
-    body = <ComfirmContainer />;
+    body = <GiftBodyConfirm />;
   } else if (pageId === 5) {
     body = <GiftBodyFinish />;
   } else {
@@ -71,9 +64,6 @@ function Gift({ pageId: pageIdOld, optionalProperty }, param1) {
       <p>{pageIdOld}</p>
       {/* <GiftFooterContainer /> */}
       <GiftFooter
-        receiver_age={receiver.age}
-        gift_price={gift.price}
-        receiver_gender={receiver.gender}
         pageId={pageId}
         onIncrease={onIncrease}
         onDecrease={onDecrease}
