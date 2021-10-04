@@ -31,5 +31,5 @@ jobs:
         run: npm
       - name: Build
         run: npm run build
-      - name: Deploy
-        run: aws s3 sync ./build s3://gifty-juepark
+      # - name: Deploy
+      #   run: aws s3 sync ./build s3://gifty-juepark

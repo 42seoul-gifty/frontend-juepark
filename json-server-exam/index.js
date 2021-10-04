@@ -62,6 +62,10 @@ app.get("/products/:id", (req, res) => {
   res.json(product1);
 });
 
+app.get("/products/:id", (req, res) => {
+  res.json(product1);
+});
+
 app.listen(9000, () => {
   console.log("listening 9000");
 });
