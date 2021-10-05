@@ -62,8 +62,67 @@ app.get("/products/:id", (req, res) => {
   res.json(product1);
 });
 
-app.get("/products/:id", (req, res) => {
-  res.json(product1);
+app.get("/token/refresh", (req, res) => {
+  res.json({
+    data: {
+      access_token: "fake_renewed_access_token",
+    },
+  });
+});
+
+app.get("/ages", (req, res) => {
+  res.json({
+    data: [
+      {
+        id: 0,
+        value: "10대",
+      },
+      {
+        id: 1,
+        value: "20대",
+      },
+      {
+        id: 2,
+        value: "30대",
+      },
+    ],
+  });
+});
+app.get("/genders", (req, res) => {
+  res.json({
+    data: [
+      {
+        id: 0,
+        value: "여",
+      },
+      {
+        id: 1,
+        value: "남",
+      },
+      {
+        id: 2,
+        value: "선택안함",
+      },
+    ],
+  });
+});
+app.get("/prices", (req, res) => {
+  res.json({
+    data: [
+      {
+        id: 0,
+        value: "10000",
+      },
+      {
+        id: 1,
+        value: "20000",
+      },
+      {
+        id: 2,
+        value: "30000",
+      },
+    ],
+  });
 });
 
 app.listen(9000, () => {

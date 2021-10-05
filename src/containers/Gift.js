@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import getAccessToken from "../api/getAccessToken";
 import {
   GiftBodyConfirm,
   GiftBodyInfoGift,
@@ -8,6 +9,7 @@ import {
   PageWrapper,
 } from "../components";
 import { GiftBody, GiftBodyFinish } from "../components";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../utils/constantValue";
 
 /**
  * @typedef {Object} GiftProps
@@ -29,6 +31,14 @@ function Gift({ optionalProperty }, param1) {
   const onDecrease = useCallback(() => {
     setPageId((pageId) => pageId - 1);
   }, []);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  if (loggedIn === false && ACCESS_TOKEN && REFRESH_TOKEN) {
+    setLoggedIn(true);
+  } else if (loggedIn === false && !ACCESS_TOKEN && REFRESH_TOKEN) {
+    console.log("renew AccessToken");
+    getAccessToken(); //잘되는지 테스트 필요
+  }
 
   let body = <div>"gift body road error"</div>;
   if (pageId === 0) {

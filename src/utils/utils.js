@@ -1,8 +1,7 @@
-
 export const sendHome = () => {
-    window.location.assign("/");
-  };
+  window.location.assign("/");
+};
 
 export const sendGiftMain = () => {
-    window.location.assign("/gift");
+  window.location.assign("/gift");
 };

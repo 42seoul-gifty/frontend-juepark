@@ -3,4 +3,5 @@ import Main from "./Main";
 import Gift from "./Gift";
 import KakaoCallback from "./KakaoCallback";
 import NaverCallback from "./NaverCallback";
-export { About, Main, Gift, KakaoCallback, NaverCallback };
+import Pay from "./Pay";
+export { About, Main, Gift, KakaoCallback, NaverCallback, Pay };

@@ -5,7 +5,7 @@ import getPricesRange from "../api/getPricesRange";
 import getAccessToken from "../api/getAccessToken";
 import { PageWrapper } from "../components";
 import { BasicButton } from "../components";
-import { ACCESS_TOKEN, REFRESH_TOKEN, ENDPOINT } from "../utils/constantValue";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../utils/constantValue";
 
 function Main(props) {
   // check if user logged in
@@ -13,7 +13,7 @@ function Main(props) {
 
   if (loggedIn === false && ACCESS_TOKEN && REFRESH_TOKEN) {
     setLoggedIn(true);
-  } else if (loggedIn === false && REFRESH_TOKEN) {
+  } else if (loggedIn === false && !ACCESS_TOKEN && REFRESH_TOKEN) {
     console.log("renew AccessToken");
     getAccessToken(); //잘되는지 테스트 필요
   }
@@ -37,17 +37,19 @@ function Main(props) {
   // }
 
   //테스트필요
+  const getRanges = async () => {
+    const ageRange = await getAgesRange();
+    console.log(ageRange);
 
-  const ageRange = getAgesRange();
-  console.log("ageRange");
+    const genderRange = await getGendersRange();
+    console.log(genderRange);
 
-  const genderRange = getGendersRange();
-  console.log("genderRange");
+    const priceRange = await getPricesRange();
+    console.log(priceRange);
+  };
+  getRanges();
 
-  const priceRange = getPricesRange();
-  console.log("priceRange");
-
-  // 테스트필요(파일분리)
+  // 테스트필요(파일분리했음)
   // async function renewAccessToken() {
   //   const fetchedData = await fetch(`${ENDPOINT}/token/refresh`, {
   //     method: "GET",
@@ -93,6 +95,11 @@ function Main(props) {
           text='선물하기'
         />
       </div>
+      {/* <div>
+        {ageRange}
+        {genderRange}
+        {priceRange}
+      </div> */}
     </PageWrapper>
   );
 }

@@ -8,11 +8,9 @@ async function getAccessToken() {
     },
   });
   const result = await res.json();
-  // console.log("result:");
-  // console.log(result);
+  console.log(`result: ${result}`);
   const ACCESS_TOKEN = result.data.access_token;
-  // console.log("ACCESS_TOKEN renew:");
-  // console.log(ACCESS_TOKEN);
+  console.log(`ACCESS_TOKEN renew: ${ACCESS_TOKEN}`);
   localStorage.setItem("access_token", ACCESS_TOKEN);
   window.location.assign("/");
 }

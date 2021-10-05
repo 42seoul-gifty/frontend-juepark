@@ -9,6 +9,7 @@ const slice = createSlice({
     receiver: {
       name: "",
       contact: "",
+      email: "",
       gender: 0,
       age: 0,
     },

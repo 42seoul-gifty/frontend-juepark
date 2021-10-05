@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Gift, Main, KakaoCallback, NaverCallback } from "./containers";
+import { Gift, Main, KakaoCallback, NaverCallback, Pay } from "./containers";
 import Login from "./containers/Login";
 
 function App() {
@@ -16,6 +16,9 @@ function App() {
           </Route>
           <Route exact path='/login'>
             <Login />
+          </Route>
+          <Route exact path='/pay'>
+            <Pay />
           </Route>
           <Route exact path='/gift'>
             <Gift />
