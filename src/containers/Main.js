@@ -3,6 +3,7 @@ import getAgesRange from "../api/getAgesRange";
 import getGendersRange from "../api/getGendersRange";
 import getPricesRange from "../api/getPricesRange";
 import getAccessToken from "../api/getAccessToken";
+import getUserInfo from "../api/getUserInfo";
 import { PageWrapper } from "../components";
 import { BasicButton } from "../components";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../utils/constantValue";
@@ -37,7 +38,7 @@ function Main(props) {
   // }
 
   //테스트필요
-  const getRanges = async () => {
+  const getInfos = async () => {
     const ageRange = await getAgesRange();
     console.log(ageRange);
 
@@ -46,8 +47,11 @@ function Main(props) {
 
     const priceRange = await getPricesRange();
     console.log(priceRange);
+
+    const userInfo = await getUserInfo(0);
+    console.log(userInfo);
   };
-  getRanges();
+  getInfos();
 
   // 테스트필요(파일분리했음)
   // async function renewAccessToken() {

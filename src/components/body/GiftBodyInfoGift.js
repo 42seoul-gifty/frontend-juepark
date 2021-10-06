@@ -42,11 +42,11 @@ function GiftBodyInfoGift() {
     );
   };
   const handlePriceChange = ({ target: { value } }) => {
-    console.log(value);
+    // console.log(value);
     updatePrice(value);
   };
   const handleAgeChange = ({ target: { value } }) => {
-    console.log(value);
+    // console.log(value);
     updateAge(value);
   };
 

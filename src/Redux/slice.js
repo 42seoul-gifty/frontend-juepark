@@ -7,15 +7,15 @@ const slice = createSlice({
   name: "info",
   initialState: {
     receiver: {
-      name: "",
-      contact: "",
-      email: "",
+      name: "받는사람",
+      contact: "01095996425",
+      email: "joso0702@naver.com",
       gender: 0,
       age: 0,
     },
     sender: {
-      name: "",
-      contact: "",
+      name: "보내는사람",
+      contact: "01024155544",
     },
     gift: {
       price: 0,

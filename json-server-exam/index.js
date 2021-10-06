@@ -61,6 +61,19 @@ app.get("/products", (req, res) => {
 app.get("/products/:id", (req, res) => {
   res.json(product1);
 });
+app.get("/users/:id", (req, res) => {
+  res.json(product1);
+});
+
+// app.get("/users/:id", (req, res) => {
+//   res.json({
+//     data: {
+//       id: 0,
+//       nickname: "juepark",
+//       email: "joso0702@naver.com",
+//     },
+//   });
+// });
 
 app.get("/token/refresh", (req, res) => {
   res.json({

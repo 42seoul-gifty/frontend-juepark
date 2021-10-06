@@ -1,16 +1,23 @@
 import React from "react";
 import { BasicButton } from "..";
-import { sendHome, sendGiftMain } from "../../utils/utils";
-import getProductList from "../../api/getProductList";
+import { sendHome, sendGiftMain, onClickPayment } from "../../utils/utils";
+import { useSelector } from "react-redux";
 
 function GiftFooter({ pageId, onIncrease, onDecrease }) {
+  const { sender } = useSelector((state) => {
+    return {
+      sender: state.info.sender,
+    };
+  });
+  const name = sender.name;
+  const email = sender.email;
+
   let footerInfo = {
     before: undefined,
     next: undefined,
     beforeText: "",
     nextText: "",
   };
-  let productList = "";
 
   // async function payment() {
   //   console.log("try to pay");
@@ -21,13 +28,21 @@ function GiftFooter({ pageId, onIncrease, onDecrease }) {
     footerInfo.nextText = "시작하기";
   }
   if (pageId === 4) {
-    footerInfo.next = async () => {
-      productList = await getProductList(1, 1, 1);
-      onIncrease();
-      console.log(productList);
-    };
+    // footerInfo.next = async () => {
+    //   // productList = await getProductList(1, 1, 1);
+    //   onIncrease();
+    //   console.log(productList);
+    // };
   }
   if (pageId === 5) {
+    footerInfo.next = async () => {
+      const payResult = await onClickPayment(name, email);
+      console.log(payResult);
+      onIncrease();
+    };
+    footerInfo.nextText = "결제하기";
+  }
+  if (pageId === 6) {
     footerInfo.before = sendHome;
     footerInfo.next = sendGiftMain;
     footerInfo.beforeText = "🏠";

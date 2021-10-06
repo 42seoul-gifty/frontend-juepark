@@ -6,11 +6,9 @@ import apiUtil from "./apiUtil";
  */
 
 async function getUserInfo(userId) {
-  const params = new URLSearchParams({
-    userId: `${userId}`,
-  });
+  const params = new URLSearchParams();
   //   console.log(res);
-  return apiUtil("GET", "users", params);
+  return apiUtil("GET", `users/${userId}`, params);
 }
 
 export default getUserInfo;

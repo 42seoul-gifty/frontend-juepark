@@ -31,12 +31,12 @@ function GiftBodyInfoReceiver() {
   };
 
   const handleNameChange = ({ target: { value } }) => {
-    console.log(value);
+    // console.log(value);
     updateName(value);
   };
 
   const handleContactChange = ({ target: { value } }) => {
-    console.log(value);
+    // console.log(value);
     updateContact(value);
   };
 

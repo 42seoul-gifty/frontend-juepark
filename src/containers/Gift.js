@@ -9,6 +9,7 @@ import {
   PageWrapper,
 } from "../components";
 import { GiftBody, GiftBodyFinish } from "../components";
+import GiftBodyPay from "../components/body/GiftBodyPay";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../utils/constantValue";
 
 /**
@@ -52,6 +53,8 @@ function Gift({ optionalProperty }, param1) {
   } else if (pageId === 4) {
     body = <GiftBodyConfirm />;
   } else if (pageId === 5) {
+    body = <GiftBodyPay />;
+  } else if (pageId === 6) {
     body = <GiftBodyFinish />;
   }
 
