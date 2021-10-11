@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
+import { css } from "@emotion/css";
 
-const PageWrapper = ({children}) => {
-	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				flexDirection: 'column',
-				minWidth: '300px',
-				minHeight: '500px',
-				border: '0.5px solid black'
-			}}>
-			{children}
-		</div>
-	);
-}
+const PageWrapper = ({ children }) => {
+  return (
+    <div
+      className={css`
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        min-width: 100vw;
+        min-height: 100vh;
+      `}>
+      {children}
+    </div>
+  );
+};
 
 export default PageWrapper;
